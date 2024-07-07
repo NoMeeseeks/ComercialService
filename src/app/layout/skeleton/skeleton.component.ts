@@ -1,9 +1,12 @@
 import { Component } from '@angular/core';
+import { RouterModule } from '@angular/router';
 
 @Component({
-  selector: 'app-skeleton',
+  selector: 'layout-skeleton',
   standalone: true,
-  imports: [],
+  imports: [
+    RouterModule,
+  ],
   templateUrl: './skeleton.component.html',
   styleUrl: './skeleton.component.css'
 })
