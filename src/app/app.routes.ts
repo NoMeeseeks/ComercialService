@@ -1,17 +1,22 @@
 import { Routes } from '@angular/router';
+import { SkeletonComponent } from '@layout/skeleton/skeleton.component';
 
 export const routes: Routes = [
     {
-        path: 'app',
+        path: 'web',
+        component: SkeletonComponent,
         children: [
             {
+                path: 'admin',
+                loadChildren: () => import('@modules/admin/admin.routes').then(m => m.routes)
+            },
+            {
                 path: 'home',
-                title: 'Menu Inicial',
-                loadComponent: () => import('@modules/home/pages/home/home.component')
+                loadChildren: () => import('@modules/home/home-routing.module').then(m => m.routes)
             },
             {
                 path: '**',
-                redirectTo: 'home'
+                redirectTo: 'dashboard'
             }
 
         ]
